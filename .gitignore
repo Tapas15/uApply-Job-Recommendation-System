@@ -1,8 +1,6 @@
 src/data
 myenv
 saved_models
-.env
 client/node_modules
 client/.env
-notebooks
 node_modules

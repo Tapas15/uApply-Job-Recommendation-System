@@ -26,7 +26,7 @@ uApply-Job-Recommendation-System/
 ### 1. Backend Setup
 
 1. Create a virtual environment and activate it:
-```bash
+   ```bash
 python -m venv myenv
 # On Windows
 myenv\Scripts\activate
@@ -35,8 +35,8 @@ source myenv/bin/activate
 ```
 
 2. Install required Python packages:
-```bash
-pip install -r requirements.txt
+   ```bash
+   pip install -r requirements.txt
 ```
 
 3. Create a `.env` file in the backend directory with the following content:
@@ -63,18 +63,18 @@ The backend server will start at `http://localhost:5000`
 ### 2. Frontend Setup
 
 1. Navigate to the client directory:
-```bash
+   ```bash
 cd client
 ```
 
 2. Install dependencies:
-```bash
-npm install
+   ```bash
+   npm install
 ```
 
 3. Start the frontend development server:
-```bash
-npm start
+   ```bash
+   npm start
 ```
 
 The frontend application will start at `http://localhost:3000`
@@ -83,7 +83,7 @@ The frontend application will start at `http://localhost:3000`
 
 You can test the API endpoints using the provided test script:
 
-```bash
+   ```bash
 cd backend
 python test_new_db.py
 ```

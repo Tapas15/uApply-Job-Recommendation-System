@@ -26,6 +26,7 @@ app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=1)
 jwt = JWTManager(app)
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 CORS(app, supports_credentials=True)
+app.secret_key = 'your-secret-key-123'  # Add this line for session management
 
 # Connect to MongoDB
 db = connect_to_mongodb()

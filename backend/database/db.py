@@ -1,6 +1,7 @@
 from pymongo import MongoClient
-import os
 from dotenv import load_dotenv
+import os
+import certifi
 
 def connect_to_mongodb():
     try:
@@ -12,16 +13,22 @@ def connect_to_mongodb():
         if not mongodb_uri:
             raise ValueError("MONGODB_URI environment variable is not set")
         
-        # Connect to MongoDB Atlas
-        client = MongoClient(mongodb_uri)
+        # Connect to MongoDB with SSL certificate and additional options
+        client = MongoClient(
+            mongodb_uri,
+            tlsCAFile=certifi.where(),
+            tlsAllowInvalidCertificates=True,
+            serverSelectionTimeoutMS=5000,
+            connectTimeoutMS=5000,
+            socketTimeoutMS=5000
+        )
         
         # Test the connection
         client.admin.command('ping')
-        print("Successfully connected to MongoDB Atlas!")
+        print("Successfully connected to MongoDB!")
         
-        # Get the database
-        db = client['uapply']
-        return db
+        return client.uapply
+        
     except Exception as e:
         print(f"Error connecting to MongoDB: {str(e)}")
         raise
